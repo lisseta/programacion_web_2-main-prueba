@@ -1,0 +1,52 @@
+extends ./layout/index.pug
+block compartircontenido
+    main.bg-degradado
+        .container.w-75.bg-primary.text-dark.rounded.shadow
+            .row.align-items-stretch
+                .col.bg-habitaciones.rounded.d-none.d-lg-block.col-md-5.col-lg-5.col-xl-6
+
+                .col.bg-white.p-5.rounded-end
+                    h2.fw-bold.text-center.py-5 Registro de Habitaciones
+                    
+                    form.needs-validation(action = "/registrarHabitaciones", method="POST")
+                        .mb-4 
+                            input(type="hidden" id="id_hbt" name="id_hbt" value=id_hbt)
+
+                        .mb-4
+                            label.form-label(for="piso") Piso
+                            input.form-control(type="text", value = piso,name="piso",placeholder="Piso de la habitación" , maxlength="10", required)
+                            span#pisoHelpInline.form-text
+                            | Debe de ser de 1 a 10 números y/o caracteres.
+
+                        .mb-4
+                            label.form-label(for="nombre") Nombre
+                            input.form-control(type="text", value = nombre, name="nombre",placeholder="Nombre", required)
+
+                        .mb-4
+                            label.form-label(for="toggle-refrigerador") Refrigerador
+                        label.switch
+                            input#togBtn(type="checkbox", name="refrigerador", checked ,value=1)
+                            .slider.round
+                            
+
+                        if hotel_actual
+                            .mb-4
+                                label.form-label(for="hotel-actual") Hotel Actual 
+                                input.form-control(type="text", value=`${hotel_actual.nombre}`, readonly)
+                        
+                        .mb-4
+                            label.form-label(for='hotel') Hotel Perteneciente:    
+                                select#hoteles.form-select(name="id_htl")
+                                    each hotel in hoteles 
+                                        option(value=`${hotel.id_htl}`)=`${hotel.nombre}` 
+                                    
+                            br
+                            span ¿No conoces cual es su hotel?
+                            |
+                            a(href="/consultarHoteles")  Consultalo aquí
+                        .mb-4.form-check.form-switch 
+                            input(type="checkbox", name="validacion", class="form-check-input", id="validacion", required)
+                            label(for="validacion", class="form-check-label") Acepto que la información contenida es correcta
+                        
+                        .mb-4.d-grid
+                            button.btn.btn-primary.btn-block(type="submit", id="btn_enviar", disabled="true") Enviar información

@@ -1,0 +1,227 @@
+/*Paleta de Colores*/
+:root {
+    --color1:  #cf8b28 ; /*header y pag principal */
+    --color2:  #edc194 ;
+    --color3:  #916014 ;
+    --color4:  #947559 ; /*Footer*/
+    --color5:  #c3aa93 ; 
+}
+
+body {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 200;
+    background-color: var(--color1);
+    letter-spacing: .05rem;
+}
+
+.lead-xl {
+    font-size: 1.75rem;
+}
+
+.nav-link {
+    margin-left: 2rem;
+    color: rgb(255, 253, 253);    
+}
+
+.sideways { 
+    writing-mode: vertical-lr;
+    display: block;
+    margin: 3.5rem 0;
+    transform: rotate(-180deg);
+}
+
+.btn-primary-mine {
+    background-color: transparent;
+    border: 1px solid var(--color2);
+    border-radius: 0;
+    color: var(--color2);
+    padding: -7rem 2.5rem;
+    font-size: 1.25rem;
+}
+
+.btn-primary-mine:hover {
+    background-color: var(--color2);
+    color: var(--color1);
+    border: 1px solid var(--color2);
+}
+
+.navbar {
+    min-height: 5rem;
+}
+
+.navbar-brand {
+    min-height: 5rem;
+}
+
+.bg-light {
+    background-color: var(--color2);
+}
+
+.bg-grey {
+    background-color: var(--color4);
+}
+
+.border-right {
+    border-right: 1px solid rgba(256,256,256,.1) !important;
+}
+
+.text-dark {
+    color: var(--color1);
+}
+
+@media (max-width: 1199.98px) {
+    .sideways {
+        margin: 2rem 0;
+    }
+
+    .lead-xl {
+        font-size: 1.25rem;
+    }
+}
+
+@media (max-width:991.98px){
+    .content {
+        padding: 5rem 0;
+    }
+}
+
+.bg {
+    background-image: url("../img/mirador.jpg");
+    background-position: center center;
+}
+
+/*No tiene ningún degradado, dejamos color base.*/
+.bg-degradado {
+    background: #ffe259;
+    background: linear-gradient(to right, #ffffff, #ffffff);
+}
+
+
+.bg-habitaciones {
+    background-image: url("../img/1.jpg");
+    background-position: center center;
+}
+
+/*Dropdown-NavBar*/
+.dropdown-menu{
+    background-color: var(--color1);
+    color: white;
+}
+
+.dropdown-item{
+    background-color:  var(--color1);
+    color: rgb(223, 223, 223);
+}
+
+.dropdown-item:hover{
+    background-color: var(--color2);
+    color: white;
+}
+
+/*Tabla-Hoteles&Habitaciones*/
+table {
+    width: 100%;
+}
+
+/*Formato-TablaFiltro*/
+#myInput {
+    background-image: url('/css/searchicon.png'); /* Add a search icon to input */
+    background-position: 10px 12px; /* Position the search icon */
+    background-repeat: no-repeat; /* Do not repeat the icon image */
+    width: 100%; /* Full-width */
+    font-size: 16px; /* Increase font-size */
+    padding: 12px 20px 12px 40px; /* Add some padding */
+    border: 1px solid #ddd; /* Add a grey border */
+    margin-bottom: 12px; /* Add some space below the input */
+  }
+  
+  #myTable {
+    border-collapse: collapse; /* Collapse borders */
+    width: 100%; /* Full-width */
+    border: 1px solid #ddd; /* Add a grey border */
+    font-size: 18px; /* Increase font-size */
+  }
+  
+  #myTable th, #myTable td {
+    text-align: left; /* Left-align text */
+    padding: 12px; /* Add padding */
+  }
+  
+  #myTable tr { /* Add a bottom border to all table rows */
+    border-bottom: 1px solid #ddd;
+  }
+  
+  #myTable tr.header, #myTable tr:hover {
+    /* Add a grey background color to the table header and on hover */
+    background-color: #f1f1f1;
+  }
+
+  /*Slider*/
+  .switch {
+    position: relative;
+    display: inline-block;
+    width: 120px;
+    height: 34px;
+    margin-top: -2em;
+  }
+  
+  .switch input {display:none;}
+  
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #9d9d9d;
+    -webkit-transition: 0s;
+    transition: 0s;
+     border-radius: 34px;
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: 0s;
+    transition: 0s;
+    border-radius: 50%;
+  }
+  
+  input:checked + .slider {
+    background-color: #916014;
+  }
+  
+  input:focus + .slider {
+    box-shadow: 0 0 1px #c3aa93;
+  }
+  
+  input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(85px);
+  }
+  
+  .slider:after {
+   content:'No hay';
+   color: white;
+   display: block;
+   position: absolute;
+   transform: translate(-50%,-50%);
+   top: 50%;
+   left: 50%;
+   font-size: 0.9em;
+   font-family: Verdana, sans-serif;
+  }
+  
+  input:checked + .slider:after{  
+    content:'Hay';
+  }
+  
+  
+  

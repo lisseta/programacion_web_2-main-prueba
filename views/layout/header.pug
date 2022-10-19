@@ -1,0 +1,34 @@
+header  
+
+    nav.navbar.navbar-expand-md.bg-color1
+        a.navbar-brand(href='#') Hoteles Zacatlán
+        button.navbar-toggler(type='button' data-toggle='collapse' data-target='#collapsibleNavbar')
+            span.navbar-toggler-icon
+        #collapsibleNavbar.collapse.navbar-collapse
+
+            ul.navbar-nav
+                //Estático
+                li.nav-item
+                    a.nav-link(href='/') Inicio
+                //Estático
+
+                //Desplegable
+                li.nav-item.dropdown
+                    a#navbardrop.nav-link.dropdown-toggle(href='#' data-toggle='dropdown')
+                        | Hoteles
+                    .dropdown-menu.ml-4
+                        a.dropdown-item(href='/registrarhoteles') Registro
+                        a.dropdown-item(href='/consultarhoteles') Consulta
+                //Fin desplegable
+
+                //Desplegable
+                li.nav-item.dropdown
+                    a#navbardrop.nav-link.dropdown-toggle(href='#' data-toggle='dropdown')
+                        | Habitaciones 
+                    .dropdown-menu.ml-4
+                        a.dropdown-item(href='/registrarhabitaciones') Registro
+                        a.dropdown-item(href='/consultarhabitaciones') Consulta
+                //Fin desplegable
+                
+                li.nav-item
+                    a.nav-link(href='/') Inicio

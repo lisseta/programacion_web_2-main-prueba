@@ -1,0 +1,29 @@
+extends ./layout/index.pug
+block compartircontenido
+    main.bg-degradado
+        .container.mt-5.text-dark
+            h1.text-center.mt-5 #{pagina}
+            .row.py-5
+                if habitaciones
+                    table.table-responsive.table.table-light.table-hover
+
+                        thead
+                            tr
+                            th Piso
+                            th Nombre Habitación
+                            th Refrigerador
+                            th Hotel Perteneciente
+                            th Modificar
+                            th Eliminar
+                        each habitacion in habitaciones                        
+                            tbody
+                                tr
+                                td #{habitacion.piso}
+                                td #{habitacion.nombre}
+                                td #{(habitacion.refrigerador == '1') ? `Refrigerador: Disponible` : `Refrigerador: No Disponible`}
+                                td #{habitacion.hotele.nombre}
+                                td
+                                        a.btn.btn-outline-warning(href=`/modificarHabitaciones?id=${habitacion.id_hbt}`) Modificar
+                                td 
+                                        a.btn.btn-outline-danger(href=`/eliminarHabitaciones?id=${habitacion.id_hbt}`) Eliminar 
+                                tr

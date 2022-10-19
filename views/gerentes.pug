@@ -1,0 +1,18 @@
+extends ./layout/index.pug
+block compartircontenido
+    main.bg-degradado
+        .container.mt-5.text-dark
+            h1.text-center.mt-5 #{pagina}
+            .row.py-5
+                each gerente in gerentes
+                        .col-md.col-lg-4.nv-4
+                            .card
+                                h5.card-header= `Gerente ${gerente.id_grt}`
+                                .card-body
+                                    h5.card-title=`${gerente.nombre} ${gerente.ap_paterno} ${gerente.ap_materno}`
+                                    p.card-text=`${gerente.telefono}`
+                                    a.btn.btn-success.mr-2(href=`/registrarHoteles? id=${gerente.id_grt}`) Elegir
+                                    |
+                                    a.btn.btn-warning.mr-2(href=`/registrarHoteles?id=${gerente.id_grt}`) Modificar  
+                                    |
+                                    a.btn.btn-danger(href=`/registrarHoteles?id=${gerente.id_grt}`) Eliminar  

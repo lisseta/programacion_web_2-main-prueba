@@ -1,0 +1,33 @@
+extends ./layout/index.pug
+block compartircontenido
+    main.bg-degradado
+        .container.w-75.bg-primary.text-dark.rounded.shadow
+            .row.align-items-stretch
+                .col.bg.rounded.d-none.d-lg-block.col-md-5.col-lg-5.col-xl-6
+
+                .col.bg-white.p-5.rounded-end
+                    h2.fw-bold.text-center.py-5 Registro de Gerentes
+                    
+                    form.needs-validation(action = "/registrarGerentes", method="POST")
+                        .mb-4 
+                            input(type="hidden" id="id_grt" name="id_grt" value=id_grt)
+                        .mb-4 
+                            label.form-label(for="nombre") Nombre
+                            input.form-control(type="text",value=nombre, name="nombre",placeholder="Nombre del Gerente...", required)
+                        .mb-4
+                            label.form-label(for="ap_paterno") Apellido paterno
+                            input.form-control(type="text", value=ap_paterno,name="ap_paterno",placeholder="Apellido paterno del Gerente...", required)
+                        .mb-4
+                            label.form-label(for="ap_materno") Apellido paterno
+                            input.form-control(type="text", value=ap_materno,name="ap_materno",placeholder="Apellido materno del Gerente...", required)    
+                        .mb-4
+                            label.form-label(for="") Teléfono
+                            input.form-control(type="tel", value=telefono,name="telefono",placeholder="Teléfono del Hotel..." , maxlength="12",onkeypress="return (event.charCode >= 48 && event.charCode <= 57)", required)
+                            span#passwordHelpInline.form-text
+                            | Debe de ser de 10 a 12 números.
+                                                
+                        .mb-4.form-check.form-switch 
+                            input(type="checkbox", name="validacion", class="form-check-input", id="validacion", required)
+                            label(for="validacion", class="form-check-label") Acepto que la información contenida es correcta
+                        .mb-4.d-grid
+                            button.btn.btn-primary.btn-block(type="submit", id="btn_enviar", disabled="true") Enviar información

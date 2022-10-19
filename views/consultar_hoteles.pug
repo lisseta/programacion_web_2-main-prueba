@@ -1,0 +1,29 @@
+extends ./layout/index.pug
+block compartircontenido 
+    main.bg-degradado
+        .container.mt-5.justify-content-center
+            h1.text-center.mt-5 #{pagina}  
+            p Escribe para filtrar los resultados 
+            input#myInput.form-control.mb-2(type="text" placeholder="Buscar" onkeyup="myFunction()")
+            if hoteles                                    
+                table#myTable.table-responsive.table.table-light.table-hover
+                    thead
+                        tr
+                        th Nombre Hotel
+                        th Dirección Hotel 
+                        th Telefono Hotel 
+                        th Correo Hotel
+                        th Modificar 
+                        th Eliminar
+                    each hotel in hoteles
+
+                        tbody
+                            tr
+                            td #{hotel.nombre}
+                            td #{hotel.direccion}
+                            td #{hotel.telefono}
+                            td #{hotel.correo}
+                            td 
+                                a.btn.btn-outline-warning(href=`/modificarHoteles?id=${hotel.id_htl}`) Modificar
+                            td 
+                                a.btn.btn-outline-danger(href=`/eliminarHoteles?id=${hotel.id_htl}`) Elimina

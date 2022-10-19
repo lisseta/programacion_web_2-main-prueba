@@ -1,0 +1,58 @@
+extends ./layout/index.pug
+block compartircontenido
+    main.bg-degradado
+        .container.w-75.bg-primary.text-dark.rounded.shadow
+            .row.align-items-stretch
+                .col.bg.rounded.d-none.d-lg-block.col-md-5.col-lg-5.col-xl-6
+
+                .col.bg-white.p-5.rounded-end
+                    h2.fw-bold.text-center.py-5 Bienvenido
+                    
+                    form.needs-validation(action = "/registrarHoteles", method="POST")
+                        .mb-4 
+                            input(type="hidden" id="id_htl" name="id_htl" value=id_htl)
+                        .mb-4 
+                            label.form-label(for="nombre") Nombre
+                            input.form-control(type="text",value=nombre, name="nombre",placeholder="Nombre del Hotel...", required)
+                            span ¿Quiere modificar un hotel ya existente?
+                            |
+                            a(href="/consultarHoteles")  Modifíquelo Aquí
+                        .mb-4
+                            label.form-label(for="direccion") Dirección
+                            input.form-control(type="text", value=direccion,name="direccion",placeholder="Dirección del Hotel...", required)
+                        .mb-4
+                            label.form-label(for="telefono") Teléfono
+                            input.form-control(type="tel", value=telefono,name="telefono",placeholder="Teléfono del Hotel..." , maxlength="12",onkeypress="return (event.charCode >= 48 && event.charCode <= 57)", required)
+                            span#passwordHelpInline.form-text
+                            | Debe de ser de 10 a 12 números.
+
+
+                        .mb-4
+                            label.form-label(for="correo") Correo
+                            input.form-control(type="email", value=correo,name="correo",placeholder="Correo asociado al   Hotel...", required)
+                        if gerente_actual 
+                            .mb-4
+                                label.form-label(for="gerente-actual") Gerente Actual 
+                                input.form-control(type="text", value=`${gerente_actual.nombre} ${gerente_actual.ap_paterno} ${gerente_actual.ap_materno}`, readonly)
+                        
+                        
+                        .mb-4
+                            label.form-label(for='gerente') Gerente    
+                                select#gerentes.form-select(name="id_grt",value=id_grt)
+                                    each gerente in gerentes
+                                        option(value=`${gerente.id_grt}`)=`${gerente.nombre} ${gerente.ap_paterno} ${gerente.ap_materno}` 
+                            br
+                            span ¿No sabes quien es tu gerente?
+                            |
+                            a(href="/gerentes")  Consultalo aquí
+                            br
+                            span ¿No aparece tu gerente?
+                            |
+                            a(href="/gerentes")  Agregalo aquí
+                        
+                        .mb-4.form-check.form-switch 
+                            input(type="checkbox", name="validacion", class="form-check-input", id="validacion", required)
+                            label(for="validacion", class="form-check-label") Acepto que la información contenida es correcta
+                        .mb-4.d-grid
+                            button.btn.btn-primary.btn-block(type="submit", id="btn_enviar", disabled="true") Enviar información
+
