@@ -7,7 +7,11 @@ import {
 
 import {
     paginaGerentes,
-    paginaRegistrarHoteles
+    registrarGerente,
+    paginaRegistrarGerentes,
+    paginaRegistrarHoteles,
+    modificarGerentes,
+    eliminarGerente
 } from "../controllers/gerentes.js"
 
 import {
@@ -31,7 +35,7 @@ const router = Router();
 router.get("/",                       paginaInicio);
 router.get("/registrarHoteles",       paginaRegistrarHoteles);
 router.get("/consultarHoteles",       paginaConsultarHoteles);
-//router.get("/acercaDe",               paginaAcercaDe);
+router.get("/acercaDe",               paginaAcercaDe);
 router.get("/contactanos",            paginaContactanos);
 router.get("/gerentes",               paginaGerentes);
 router.get("/registrarHabitaciones",  paginaRegistrarHabitaciones);
@@ -41,10 +45,13 @@ router.get("/modificarHabitaciones",  modificarHabitaciones);
 router.get("/eliminarHoteles",        eliminarHoteles);
 router.get("/eliminarHabitaciones",   eliminarHabitaciones);
 
+router.get("/registrarGerentes",      paginaRegistrarGerentes);
+router.get("/modificarGerentes",      modificarGerentes);
+router.get("/eliminarGerentes",       eliminarGerente);
+
 //Peticiones POST
 router.post("/registrarHoteles",      registrarHotel);
 router.post("/registrarHabitaciones", registrarHabitaciones);
-
-
+router.post("/registrarGerentes",     registrarGerente);
 
 export default router;
