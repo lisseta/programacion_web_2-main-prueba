@@ -22,11 +22,15 @@ block compartircontenido
                             label.form-label(for="nombre") Nombre
                             input.form-control(type="text", value = nombre, name="nombre",placeholder="Nombre", required)
 
-                        .mb-4
+                        div
                             label.form-label(for="toggle-refrigerador") Refrigerador
-                        label.switch
-                            input#togBtn(type="checkbox", name="refrigerador", checked ,value=1)
-                            .slider.round
+                        .mb-4.btn-switch
+                            input#yes.btn-switch__radio.btn-switch__radio_yes(type='radio' name='refrigerador' value="1")
+                            input#no.btn-switch__radio.btn-switch__radio_no(type='radio' checked='' name='refrigerador' value="0")
+                            label.btn-switch__label.btn-switch__label_yes(for='yes')
+                              span.btn-switch__txt Hay 
+                            label.btn-switch__label.btn-switch__label_no(for='no')
+                              span.btn-switch__txt No hay
                             
 
                         if hotel_actual

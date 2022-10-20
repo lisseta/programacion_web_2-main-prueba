@@ -157,71 +157,88 @@ table {
   }
 
   /*Slider*/
-  .switch {
-    position: relative;
-    display: inline-block;
-    width: 120px;
-    height: 34px;
-    margin-top: -2em;
-  }
-  
-  .switch input {display:none;}
-  
-  .slider {
-    position: absolute;
-    cursor: pointer;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: #9d9d9d;
-    -webkit-transition: 0s;
-    transition: 0s;
-     border-radius: 34px;
-  }
-  
-  .slider:before {
-    position: absolute;
-    content: "";
-    height: 26px;
-    width: 26px;
-    left: 4px;
-    bottom: 4px;
-    background-color: white;
-    -webkit-transition: 0s;
-    transition: 0s;
-    border-radius: 50%;
-  }
-  
-  input:checked + .slider {
-    background-color: #916014;
-  }
-  
-  input:focus + .slider {
-    box-shadow: 0 0 1px #c3aa93;
-  }
-  
-  input:checked + .slider:before {
-    -webkit-transform: translateX(26px);
-    -ms-transform: translateX(26px);
-    transform: translateX(85px);
-  }
-  
-  .slider:after {
-   content:'No hay';
-   color: white;
-   display: block;
-   position: absolute;
-   transform: translate(-50%,-50%);
-   top: 50%;
-   left: 50%;
-   font-size: 0.9em;
-   font-family: Verdana, sans-serif;
-  }
-  
-  input:checked + .slider:after{  
-    content:'Hay';
-  }
-  
-  
-  
+
+.btn-switch {
+  font-size: 1.2em;
+	position: relative;
+	display: inline-block;		
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+    width: 8em;
+    height: 3em;
+}
+.btn-switch__radio {
+	display: none;
+}
+.btn-switch__label {
+	display: inline-block;	
+	padding: .75em .5em .75em .75em;
+	vertical-align: top;
+	font-size: 1em;
+	font-weight: 700;
+	line-height: 1.5;
+	color: #666;
+  cursor: pointer;
+	transition: color .2s ease-in-out;
+}
+.btn-switch__label + .btn-switch__label {
+  padding-right: .75em;
+	padding-left: 0;
+}
+.btn-switch__txt {
+	position: relative;
+	z-index: 2;
+  display: inline-block;
+   min-width: 1.5em;
+	opacity: 1;
+	pointer-events: none;
+	transition: opacity .2s ease-in-out;
+}
+.btn-switch__radio_no:checked ~ .btn-switch__label_yes .btn-switch__txt,
+.btn-switch__radio_yes:checked ~ .btn-switch__label_no .btn-switch__txt {
+	opacity: 0;
+}
+.btn-switch__label:before {
+	content: "";
+	position: absolute;
+	z-index: -1;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background: #f0f0f0;
+	border-radius: 1.5em;
+	box-shadow: inset 0 .0715em .3572em rgba(43,43,43,.05);
+	transition: background .2s ease-in-out;
+}
+.btn-switch__radio_yes:checked ~ .btn-switch__label:before {
+	background: #6ad500;
+}
+.btn-switch__label_no:after {
+	content: "";
+	position: absolute;
+	z-index: 2;
+	top: .5em;
+	bottom: .5em;
+	left: .5em;
+	width: 2em;
+    height: 2em;
+	background: #fff;
+	border-radius: 1em;	
+	pointer-events: none;
+	box-shadow: 0 .1429em .2143em rgba(43,43,43,.2), 0 .3572em .3572em rgba(43,43,43,.1);
+	transition: left .2s ease-in-out, background .2s ease-in-out;
+}
+.btn-switch__radio_yes:checked ~ .btn-switch__label_no:after {
+	left: calc(100% - 2.5em);
+	background: #fff;
+}
+.btn-switch__radio_no:checked ~ .btn-switch__label_yes:before,
+.btn-switch__radio_yes:checked ~ .btn-switch__label_no:before {
+	z-index: 1;
+}
+.btn-switch__radio_yes:checked ~ .btn-switch__label_yes {
+	color: #fff;
+}
