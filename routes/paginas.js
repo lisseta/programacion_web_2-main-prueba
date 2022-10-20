@@ -9,7 +9,11 @@ import {
     paginaGerentes,
     registrarGerente,
     paginaRegistrarGerentes,
+    registrarGerente,
+    paginaRegistrarGerentes,
     paginaRegistrarHoteles,
+    modificarGerentes,
+    eliminarGerente,
     modificarGerentes,
     eliminarGerente
 } from "../controllers/gerentes.js"
@@ -44,6 +48,10 @@ router.get("/modificarHoteles",       modificarHoteles);
 router.get("/modificarHabitaciones",  modificarHabitaciones);
 router.get("/eliminarHoteles",        eliminarHoteles);
 router.get("/eliminarHabitaciones",   eliminarHabitaciones);
+
+router.get("/registrarGerentes",      paginaRegistrarGerentes);
+router.get("/modificarGerentes",      modificarGerentes);
+router.get("/eliminarGerentes",       eliminarGerente);
 
 router.get("/registrarGerentes",      paginaRegistrarGerentes);
 router.get("/modificarGerentes",      modificarGerentes);
