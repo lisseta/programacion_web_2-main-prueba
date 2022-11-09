@@ -5,7 +5,7 @@ USE hoteles;
 
 --Creamos tabla gerentes ya que es una tabla principal
 CREATE TABLE gerentes(
-id_grt                        INTEGER NOT NULL AUTO_INCREMENT,
+id_grt                        INTEGER  AUTO_INCREMENT,
 nombre                        VARCHAR(40) NOT NULL,
 ap_paterno                    VARCHAR(20) NOT NULL,
 ap_materno                    VARCHAR(20) NOT NULL,
@@ -23,8 +23,10 @@ telefono                        VARCHAR(30)  NOT NULL,
 correo                          VARCHAR(300) NOT NULL,
 id_grt                          INTEGER,
 PRIMARY KEY(id_htl),
-FOREIGN KEY(id_grt) REFERENCES gerentes(id_grt) ON DELETE CASCADE
+FOREIGN KEY(id_grt) REFERENCES gerentes(id_grt) ON DELETE SET NULL 
 );
+
+--Valor nulo en el campo Gerentes -- Hotel sin gerente.
 
 --Creamos tabla habitaciones
 CREATE TABLE habitaciones(
@@ -36,3 +38,4 @@ id_htl                          INTEGER,
 PRIMARY KEY(id_hbt),
 FOREIGN KEY(id_htl) REFERENCES hoteles(id_htl) ON DELETE CASCADE
 );
+

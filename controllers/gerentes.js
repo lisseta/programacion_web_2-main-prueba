@@ -37,7 +37,7 @@ const paginaRegistrarGerentes = async (req, res = response) => {
     });
 };
 
-
+//Registrar
 const registrarGerente = async (req, res) => {
     const {id_grt, nombre, ap_paterno, ap_materno, telefono} = req.body;
     const errores = [];
@@ -95,6 +95,7 @@ const registrarGerente = async (req, res) => {
     }
 }
 
+//Modificar
 const modificarGerentes = async (req, res) =>{
     //Con req.query.id utilizamos la llave para saber cual id y traer la informacion de ese id 
     console.log('Listo '+ req.query.id)
@@ -118,6 +119,10 @@ const modificarGerentes = async (req, res) =>{
     }
 }
 
+//Actualizar
+
+
+//Eliminar
 const eliminarGerente = async (req, res) => {
     console.log('Listo para borrar ' + req.query.id);
         //Eliminar en la base de datos
