@@ -29,5 +29,25 @@ block compartircontenido
                         .mb-4.form-check.form-switch 
                             input(type="checkbox", name="validacion", class="form-check-input", id="validacion", required)
                             label(for="validacion", class="form-check-label") Acepto que la información contenida es correcta
+
+                        .mb-4 
+                            label.form-label(for="img_ruta") Imagen
+                            input#idarchivo.form-control(type="file",value=img_ruta, name="img_ruta", required)
+
                         .mb-4.d-grid
-                            button.btn.btn-primary.btn-block(type="submit", id="btn_enviar", disabled="true") Enviar información
+                            button.btn.btn-primary.btn-block(type="submit", id="btn_enviar", onclick="EnviarArchivo()" disabled="true") Enviar información
+
+
+    script.
+        const EnviarArchivo = async () => {
+        // Object
+        const myFiles = document.getElementById('idarchivo').files
+        const formData = new FormData()
+        Object.keys(myFiles).forEach(key => {
+        formData.append(myFiles.item(key).name, myFiles.item(key))
+        })
+        const response = await fetch('http://127.0.0.1:1802/upload', {
+        method: 'POST',
+        body: formData
+        })
+        }

@@ -39,10 +39,10 @@ const paginaRegistrarGerentes = async (req, res = response) => {
 
 //Registrar
 const registrarGerente = async (req, res) => {
-    const {id_grt, nombre, ap_paterno, ap_materno, telefono} = req.body;
+    const {id_grt, nombre, ap_paterno, ap_materno, telefono, img_ruta} = req.body;
     const errores = [];
 
-    console.log(req.body);
+    console.log(img_ruta+nombre);
 
     if(nombre.trim() === "") {
         errores.push({ mensaje: "El nombre no debe ser vacio"});
@@ -60,8 +60,10 @@ const registrarGerente = async (req, res) => {
             nombre, 
             ap_paterno, 
             ap_materno, 
-            telefono
+            telefono,
+            img_ruta,
         });
+
     } else {
         console.log(id_grt);
         if(id_grt > 0){
@@ -72,7 +74,8 @@ const registrarGerente = async (req, res) => {
                     nombre, 
                     ap_paterno, 
                     ap_materno, 
-                    telefono
+                    telefono,
+                    img_ruta,
                 },{where: {id_grt:id_grt}});
                 res.redirect('/gerentes');
             }   catch(error) {
@@ -85,7 +88,9 @@ const registrarGerente = async (req, res) => {
                     nombre, 
                     ap_paterno, 
                     ap_materno, 
-                    telefono
+                    telefono,
+                    img_ruta
+
                 });
                 res.redirect('/gerentes');
             } catch(error) {
